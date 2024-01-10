@@ -14,5 +14,6 @@ id: instance id of the instance
 
 
 Under Modules we have two directories, one is ec2 (where ec2 code is taken/written from cloud admin team)
-another is project-ec2 is user defined as per project, where ec2 module is written and fetches path from above ec2 code.
-whatever variables mention in project-ec2 will be overwriten otherwise ec2 default values only it takes.
+another is project-ec2 is user defined as per project, where ec2 module is written and fetches path from above ec2 code
+Folder structure is same for both directories.But project-ec2 folder variables will overwrite the ec2 folder variables.
+If variables/outputs are not mention in project-ec2, then ec2 default variable/output values only it takes.
