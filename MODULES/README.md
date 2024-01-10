@@ -1,6 +1,7 @@
 EC2-Module
 Inputs:
-ami (Optional): AMI ID is optional. Default ami is ami-03265a0778a880afb which is  from centos8 
+ami (Optional): AMI ID is optional. Default ami is ami-03265a0778a880afb which is from centos8.
+
 instance_type(Optional): default value is t2.micro
 tags (Optional): default value is empty.
 Note: whenever we mention default values, automatically terraform picks default values, so inputs became optional.
