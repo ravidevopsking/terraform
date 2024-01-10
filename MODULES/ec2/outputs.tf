@@ -1,4 +1,4 @@
-output "total instance data" {
+output "total_output" {
     value = aws_instance.ec2
  
 }
