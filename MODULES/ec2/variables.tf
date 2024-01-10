@@ -11,6 +11,8 @@ variable "instance_type" {
 }
 
 variable "tags" {
-  default = {}
+  default = {
+    Name = "ec2"
+  }
   type = map
 }
