@@ -47,5 +47,3 @@ Outputs:
 •	public_subnet_ids - 2 public subnet ID created
 •	private_subnet_ids - 2 private subnet ID created
 •	database_subnet_ids - 2 database subnet ID created
-
-
