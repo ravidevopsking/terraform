@@ -1,3 +1,4 @@
+#this project-vpc folder variables overrides the ../vpc variables folder.
 variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
