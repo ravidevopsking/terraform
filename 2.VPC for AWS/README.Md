@@ -1,4 +1,4 @@
-data.tf file is used to query or read the data
+data.tf file is used to query or read the data 
 
 locals.tf file is used like variables.tf, but it is mainly used to store values in variables, run functions and expressions.
 
