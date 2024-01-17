@@ -2,6 +2,9 @@ data.tf file is used to query or read the data
 
 locals.tf file is used like variables.tf, but it is mainly used to store values in variables, run functions and expressions.
 
+vpc directory got from cloud admin team, project-vpc directory is our team modified code as per project.
+we use vpc directory code in our project-vpc directory as modules for setting up of vpc.
+
 AWS VPC Module:
 This module creates following resources. We are using HA, we are getting first 2 AZ automatically.
 •	VPC
