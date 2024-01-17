@@ -4,7 +4,8 @@ locals.tf file is used like variables.tf, but it is mainly used to store values 
 
 AWS VPC Module:
 This module creates following resources. We are using HA, we are getting first 2 AZ automatically.
-•	VPC
+
+VPC:
 •	Internet Gateway with VPC association
 •	2 Public subnets in 1a and 1b
 •	2 Private subnets in 1a and 1b
