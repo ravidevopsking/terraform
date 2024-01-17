@@ -1,2 +1,2 @@
 1.Instead of domain names , can use private ip address of instances for avoid billing
-2.Instead of storing statefile file in s3 bucket, can use default terraform.tfvars 
+2.Instead of storing statefile in s3 bucket, can use default terraform.tfvars 
