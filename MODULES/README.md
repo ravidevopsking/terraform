@@ -1,4 +1,5 @@
-This is demo ec2 module, based on we develop vpc,sg,vpn,many modules
+This is demo ec2 module, here we learn how to write and use. once we learn, we can develop vpc,sg,vpn,many modules
+
 EC2-Module
 Inputs:
 ami (Optional): AMI ID is optional. Default ami is ami-03265a0778a880afb which is from centos8.
