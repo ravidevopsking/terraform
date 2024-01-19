@@ -108,6 +108,9 @@ module "web" {
   #sg_ingress_rules = var.mongodb_sg_ingress_rules
 }
 
+#NOTE: Generally in main.tf of project folders we are using modules blocks only, not using resource blocks here
+#generaly we keep below resource blocks in main.tf of sg for aws. Just test this by moving below code to sg for aws folder
+
 #openvpn
 resource "aws_security_group_rule" "vpn_home" {
   security_group_id = module.vpn.sg_id
