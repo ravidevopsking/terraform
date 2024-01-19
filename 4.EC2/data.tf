@@ -2,7 +2,7 @@ data "aws_ami" "centos8"{
     owners = ["973714476881"]
     most_recent      = true
 
-    filter {
+    filter {                  #filtering ami image based on below values
         name   = "name"
         values = ["Centos-8-DevOps-Practice"]
     }
