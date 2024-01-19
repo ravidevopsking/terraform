@@ -184,7 +184,6 @@ resource "aws_security_group_rule" "mysql_shipping" {
   security_group_id        = module.mysql.sg_id
 }
 
-
 resource "aws_security_group_rule" "rabbitmq_vpn" {
   source_security_group_id = module.vpn.sg_id
   type                     = "ingress"
