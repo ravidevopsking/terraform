@@ -1,5 +1,5 @@
 module "mongodb" {
-  source                 = "terraform-aws-modules/ec2-instance/aws"
+  source                 = "terraform-aws-modules/ec2-instance/aws"  #here source path is taking from terraform official site
   ami = data.aws_ami.centos8.id
   name                   = "${local.ec2_name}-mongodb"
   instance_type          = "t3.small"
@@ -198,7 +198,7 @@ module "ansible" {
 }
 
 module "records" {
-  source  = "terraform-aws-modules/route53/aws//modules/records"
+  source  = "terraform-aws-modules/route53/aws//modules/records"  #here source path is taking from terraform official site
   zone_name = var.zone_name
 
   records = [

@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket         = "daws76s-remote-state"
-    key            = "ec2"
-    region         = "us-east-1"
-    dynamodb_table = "daws76s-locking"
-  }
+#   backend "s3" {                   #if created give ur backend details
+#     bucket         = "daws76s-remote-state"
+#     key            = "ec2"
+#     region         = "us-east-1"
+#     dynamodb_table = "daws76s-locking"
+#   }
 }
 
 provider "aws" {

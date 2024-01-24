@@ -1,5 +1,5 @@
 module "vpn" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for VPN"
@@ -9,7 +9,7 @@ module "vpn" {
 }
 
 module "mongodb" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for MongoDB"
@@ -19,7 +19,7 @@ module "mongodb" {
 }
 
 module "redis" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for redis"
@@ -29,7 +29,7 @@ module "redis" {
 }
 
 module "mysql" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for mysql"
@@ -39,7 +39,7 @@ module "mysql" {
 }
 
 module "rabbitmq" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for rabbitmq"
@@ -49,7 +49,7 @@ module "rabbitmq" {
 }
 
 module "catalogue" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for catalogue"
@@ -59,7 +59,7 @@ module "catalogue" {
 }
 
 module "user" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for user"
@@ -69,7 +69,7 @@ module "user" {
 }
 
 module "cart" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for cart"
@@ -79,7 +79,7 @@ module "cart" {
 }
 
 module "shipping" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for shipping"
@@ -89,7 +89,7 @@ module "shipping" {
 }
 
 module "payment" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for payment"
@@ -99,7 +99,7 @@ module "payment" {
 }
 
 module "web" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for web"
@@ -109,7 +109,7 @@ module "web" {
 }
 
 module "app_alb" {
-  source         = "../../terraform-aws-security-group"
+  source         = "../sg for aws"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for APP ALB"

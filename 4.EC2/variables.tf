@@ -14,5 +14,5 @@ variable "environment" {
 }
 
 variable "zone_name" {
-  default = "daws76s.online"
+  default = "daws76s.online"          #give ur domain name
 }

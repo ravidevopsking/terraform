@@ -3,6 +3,10 @@ variable "instance_type" {
 }
 
 variable "tags" {
-    default = {}
+    default = {
+        Name = "project-ec2"
+        terraform = "true"
+        environment = "dev"
+    }
   
 }
