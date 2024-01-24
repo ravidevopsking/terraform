@@ -192,7 +192,7 @@ resource "null_resource" "rabbitmq" {
   }
 }
 
-#below module is used to create records for all databases
+#below module is used to create dns records for all databases
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
 

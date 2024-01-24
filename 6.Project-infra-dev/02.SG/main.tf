@@ -139,7 +139,7 @@ resource "aws_security_group_rule" "vpn_home" {
 }
 
 #mongodb should accept connections through vpn only
-#All private instances should connect through vpn only
+#All instances should connect through vpn only, if i connects to vpn.
 #in practice if i dont want connection through vpn, remove sg rule vpn and connect through direct internet(0.0.0.0/0) but not recommended.
 resource "aws_security_group_rule" "mongodb_vpn" {
   source_security_group_id = module.vpn.sg_id
@@ -396,6 +396,9 @@ resource "aws_security_group_rule" "payment_web" {
   security_group_id        = module.payment.sg_id
 }
 
+#establishing connections to web through vpn
+#as we are connected to vpn, every component should connect to vpn
+#If i am not using vpn, i can ignore below block
 resource "aws_security_group_rule" "web_vpn" {
   source_security_group_id = module.vpn.sg_id
   type                     = "ingress"
@@ -405,6 +408,7 @@ resource "aws_security_group_rule" "web_vpn" {
   security_group_id        = module.web.sg_id
 }
 
+#web instance is a public instance and accepts connections directly from internet(0.0.0.0/0) through port 80
 resource "aws_security_group_rule" "web_internet" {
   cidr_blocks = ["0.0.0.0/0"]
   type                     = "ingress"
@@ -413,3 +417,9 @@ resource "aws_security_group_rule" "web_internet" {
   protocol                 = "tcp"
   security_group_id        = module.web.sg_id
 }
+
+#ports:
+#components(catalogue,user,web..) to vpn connection using port : 22
+#web instance/public component to outside internet using port : 80
+#component to componet connection (not recommended), but if i want to use without vpn then port : 8080
+#component to application load balancer connection (recommended) using port: 8080
