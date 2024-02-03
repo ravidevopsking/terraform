@@ -14,3 +14,7 @@ Generally ansible uses push based mechanism.i.e from ansible server i execute co
 #component to application load balancer connection (recommended) using port: 8080
 
 ##############################################
+
+
+READ 06.CATALOGUE/main.tf  and 09.WEB/main.tf   for provisioning servers and configuring for every updation/release in VM BASED APPROACH.
+i.e rolling upgrades to existing servers
