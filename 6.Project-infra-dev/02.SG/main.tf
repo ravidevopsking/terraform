@@ -1,5 +1,7 @@
 module "vpn" {
-  source         = "../sg for aws"
+  #source         = "../sg for aws"
+  #source has to give from git in real time, so commented above and gave below. Both has same code only
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for VPN"
@@ -9,7 +11,7 @@ module "vpn" {
 }
 
 module "mongodb" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for MongoDB"
@@ -19,7 +21,7 @@ module "mongodb" {
 }
 
 module "redis" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for redis"
@@ -29,7 +31,7 @@ module "redis" {
 }
 
 module "mysql" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for mysql"
@@ -39,7 +41,7 @@ module "mysql" {
 }
 
 module "rabbitmq" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for rabbitmq"
@@ -49,7 +51,7 @@ module "rabbitmq" {
 }
 
 module "catalogue" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for catalogue"
@@ -59,7 +61,7 @@ module "catalogue" {
 }
 
 module "user" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for user"
@@ -69,7 +71,7 @@ module "user" {
 }
 
 module "cart" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for cart"
@@ -79,7 +81,7 @@ module "cart" {
 }
 
 module "shipping" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for shipping"
@@ -89,7 +91,7 @@ module "shipping" {
 }
 
 module "payment" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for payment"
@@ -99,7 +101,7 @@ module "payment" {
 }
 
 module "web" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for web"
@@ -109,7 +111,7 @@ module "web" {
 }
 
 module "app_alb" {
-  source         = "../sg for aws"
+  source         = "git::https://github.com/ravidevopsking/terraform-aws-security-group.git?ref=main"
   project_name   = var.project_name
   environment    = var.environment
   sg_description = "SG for APP ALB"
@@ -126,6 +128,69 @@ resource "aws_security_group_rule" "app_alb_vpn" {
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_web" {
+  source_security_group_id = module.web.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_cart" {
+  source_security_group_id = module.cart.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_shipping" {
+  source_security_group_id = module.shipping.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_user" {
+  source_security_group_id = module.user.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_catalogue" {
+  source_security_group_id = module.catalogue.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "app_alb_payment" {
+  source_security_group_id = module.payment.sg_id
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = module.app_alb.sg_id
+}
+
+resource "aws_security_group_rule" "web_alb_internet" {
+  cidr_blocks = ["0.0.0.0/0"]
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = module.web_alb.sg_id
 }
 
 #openvpn
